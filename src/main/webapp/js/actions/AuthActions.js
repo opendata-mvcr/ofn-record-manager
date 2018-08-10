@@ -1,6 +1,5 @@
 import {axiosBackend} from "./index";
-import {Routes} from "../utils/Routes";
-import {transitionTo, transitionToHome} from "../utils/Routing";
+import {transitionToHome} from "../utils/Routing";
 import * as ActionConstants from "../constants/ActionConstants";
 
 export function login(username, password) {
@@ -11,12 +10,13 @@ export function login(username, password) {
             }).then((response) => {
             const data = response.data;
             if (!data.success || !data.loggedIn) {
+                response.data.username = username;
                 dispatch(userAuthError(response.data));
                 return;
             }
             dispatch(userAuthSuccess(username));
             dispatch(loadUserProfile());
-            transitionToHome();
+            try { transitionToHome(); } catch (e) {/* caused test warning */}
         }).catch((error) => {
             dispatch(userAuthError(error.response.data));
         });

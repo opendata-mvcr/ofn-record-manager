@@ -1,5 +1,5 @@
 import * as ActionConstants from "../constants/ActionConstants";
-import {ACTION_FLAG} from "../constants/DefaultConstants";
+import {ACTION_FLAG, ACTION_STATUS} from "../constants/DefaultConstants";
 import {axiosBackend} from "./index";
 import * as Utils from "../utils/Utils";
 import {loadRecords} from "./RecordsActions";
@@ -140,5 +140,23 @@ export function saveRecordError(error, record, actionFlag) {
 export function unloadSavedRecord() {
     return {
         type: ActionConstants.UNLOAD_SAVED_RECORD
+    }
+}
+
+export function loadFormgen(status, error = null) {
+    switch (status) {
+        case ACTION_STATUS.PENDING:
+            return {
+                type: ActionConstants.LOAD_FORMGEN_PENDING
+            };
+        case ACTION_STATUS.SUCCESS:
+            return {
+                type: ActionConstants.LOAD_FORMGEN_SUCCESS
+            };
+        case ACTION_STATUS.ERROR:
+            return {
+                type: ActionConstants.LOAD_FORMGEN_ERROR,
+                error
+            }
     }
 }

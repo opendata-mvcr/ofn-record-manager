@@ -130,14 +130,11 @@ td.actions button {
 }
 
 .login-panel {
-    display: table;
     width: 400px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .login-buttons {
@@ -851,3 +848,16 @@ button .help-icon {
 .pagination .pointer{
     cursor: pointer
 }
+
+.alert-browser-support {
+    margin-bottom: 10px;
+}
+
+.invite-to-study-text {
+    line-height: 1.8;
+}
+
+.buttons-line-height {
+    line-height: 2.6;
+}
+

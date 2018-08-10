@@ -8,6 +8,7 @@ const initialState = {
     recordLoaded: {},
     recordSaved: {},
     recordsDeleting: [],
+    formgen: {}
 };
 
 export default function (state = initialState, action) {
@@ -80,13 +81,13 @@ export default function (state = initialState, action) {
                 recordLoaded: {}
             };
         case ActionConstants.DELETE_RECORD_PENDING:
-            state.recordsDeleting.push(action.key);
             return {
                 ...state,
                 recordDeleted: {
                     status: ACTION_STATUS.PENDING,
                     key: action.key
                 },
+                recordsDeleting: state.recordsDeleting.concat(action.key)
             };
         case ActionConstants.DELETE_RECORD_SUCCESS:
             return {
@@ -107,6 +108,30 @@ export default function (state = initialState, action) {
                     error: action.error
                 },
                 recordsDeleting: without(state.recordsDeleting, action.key)
+            };
+        case ActionConstants.LOAD_FORMGEN_PENDING:
+            return {
+                ...state,
+                formgen: {
+                    status: ACTION_STATUS.PENDING,
+                    error: ''
+                }
+            };
+        case ActionConstants.LOAD_FORMGEN_SUCCESS:
+            return {
+                ...state,
+                formgen: {
+                    status: ACTION_STATUS.SUCCESS,
+                    error: ''
+                }
+            };
+        case ActionConstants.LOAD_FORMGEN_ERROR:
+            return {
+                ...state,
+                formgen: {
+                    status: ACTION_STATUS.ERROR,
+                    error: action.error
+                }
             };
         default:
             return state;
