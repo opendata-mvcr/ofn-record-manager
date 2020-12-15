@@ -49,6 +49,7 @@ export default {
         'login.reset-password-success': 'Link to reset password was sent to the provided email.',
         'login.reset-password-error': 'Resetting password failed. Please contact an administrator if the provided email is correct.',
         'login.token-password-success': 'Your password has been set.',
+        'login.demo-message': '(For demo version enter username  \'testuser\' and password \'testuser\'.)',
 
         'main.users-nav': 'Users',
         'main.institutions-nav': 'Institutions',

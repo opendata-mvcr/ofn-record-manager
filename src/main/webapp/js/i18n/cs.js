@@ -49,6 +49,7 @@ export default {
         'login.reset-password-success': 'Odkaz na obnovení hesla byl odeslán na zadaný e-mail.',
         'login.reset-password-error': 'Resetování hesla se nezdařilo. Pokud je zadaný e-mail správný, kontaktujte administrátora.',
         'login.token-password-success': 'Heslo bylo nastaveno.',
+        'login.demo-message': '(Pro demo verzi zadejte jméno \'testuser\' a heslo \'testuser\'.)',
 
         'main.users-nav': 'Uživatelé',
         'main.institutions-nav': 'Instituce',

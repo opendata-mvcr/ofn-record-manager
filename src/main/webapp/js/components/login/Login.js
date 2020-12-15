@@ -106,6 +106,7 @@ class Login extends React.Component {
                                     disabled={this.props.isLogging}>
                                 {this.i18n('login.submit')}{this.props.isLogging && <LoaderSmall/>}
                             </Button>
+                            {this.i18n('login.demo-message')}
                         </div>
                     </Form>
                 </Card.Body>
